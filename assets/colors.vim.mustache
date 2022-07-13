@@ -1,0 +1,9 @@
+" {{#base9}}{{c0.hex}}-{{c1.hex}}-{{c2.hex}}-{{c3.hex}}-{{c4.hex}}-{{c5.hex}}-{{c6.hex}}-{{c7.hex}}-{{c8.hex}}{{/base9}}
+let s:b9 = {}
+let s:b9.none = { 'hash': 'NONE', 'ansi256': 'NONE' }
+let s:b9.empty = { 'hash': '', 'ansi256': '' }
+{{#PROGRAMMABLE}}
+{{^color}}let s:b9.{{path.dotted}} = {}{{/color}}{{!
+}}{{#color}}let s:b9.{{path.dotted}} = { 'hash': '#{{hex}}', 'ansi256': 0 }{{/color}}
+{{/PROGRAMMABLE}}
+let g:base9#colors = s:b9
