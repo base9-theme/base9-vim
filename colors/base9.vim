@@ -67,30 +67,18 @@ function! HL(group, fg, ...)
   execute join(histring, ' ')
 endfunction
 
-function! LN(group, group2)
-  execute 'hi! link' . a:group . ' ' . a:group2
-endfunction
+" Might not need this
+" function! LN(group, group2)
+"   execute 'hi! link' . a:group . ' ' . a:group2
+" endfunction
 
 
 
 
 if has('nvim')
-  let g:terminal_color_0  = M.ansi.c0.hash
-  let g:terminal_color_1  = M.ansi.c1.hash
-  let g:terminal_color_2  = M.ansi.c2.hash
-  let g:terminal_color_3  = M.ansi.c3.hash
-  let g:terminal_color_4  = M.ansi.c4.hash
-  let g:terminal_color_5  = M.ansi.c5.hash
-  let g:terminal_color_6  = M.ansi.c6.hash
-  let g:terminal_color_7  = M.ansi.c7.hash
-  let g:terminal_color_8  = M.ansi.c8.hash
-  let g:terminal_color_9  = M.ansi.c9.hash
-  let g:terminal_color_10 = M.ansi.ca.hash
-  let g:terminal_color_11 = M.ansi.cb.hash
-  let g:terminal_color_12 = M.ansi.cc.hash
-  let g:terminal_color_13 = M.ansi.cd.hash
-  let g:terminal_color_14 = M.ansi.ce.hash
-  let g:terminal_color_15 = M.ansi.cf.hash
+  " lua require('tokyonight').colorscheme()
+  lua package.loaded['base9'] = nil
+  lua require('base9').load()
 endif
 
 " Basic
@@ -184,6 +172,4 @@ call HL('Folded', M.none, M.fold.p25)
 hi! link FoldColumn Folded
 call HL('SignColumn', M.foreground.p100, M.foreground.p10)
 call HL('NonText', M.foreground.p50)
-
-" ------------------- Development
 
